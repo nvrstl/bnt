@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>B&amp;T | Boldly building the AI-native generation</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Hanken+Grotesk:wght@400;500&amp;family=JetBrains+Mono:wght@600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#e3bdc5",
+                    "secondary-fixed-dim": "#88d1e7",
+                    "tertiary": "#7000ff",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#e5e2e3",
+                    "surface-container-highest": "#e5e2e3",
+                    "on-secondary-container": "#116a7d",
+                    "inverse-on-surface": "#f3f0f1",
+                    "primary-container": "#e11170",
+                    "surface-container": "#f0edee",
+                    "tertiary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#23005b",
+                    "on-tertiary-fixed-variant": "#5700c9",
+                    "on-primary-container": "#fffbff",
+                    "secondary": "#0b677a",
+                    "surface-container-low": "#f6f3f4",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed-dim": "#ffb1c4",
+                    "inverse-surface": "#303031",
+                    "primary": "#b60058",
+                    "tertiary-fixed-dim": "#d1bcff",
+                    "on-secondary-fixed-variant": "#004e5d",
+                    "primary-fixed": "#ffd9e0",
+                    "inverse-primary": "#ffb1c4",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#fcf8f9",
+                    "error": "#ba1a1a",
+                    "outline": "#8f6f76",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#eae7e8",
+                    "secondary-container": "#9fe8fe",
+                    "tertiary-container": "#874cff",
+                    "surface-tint": "#bb005a",
+                    "secondary-fixed": "#afecff",
+                    "on-surface-variant": "#5b3f46",
+                    "surface": "#fcf8f9",
+                    "on-tertiary-container": "#fffbff",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#8f0044",
+                    "surface-dim": "#dcd9da",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#fcf8f9",
+                    "on-background": "#1b1b1c",
+                    "on-secondary-fixed": "#001f27",
+                    "on-primary-fixed": "#3f001a",
+                    "on-surface": "#1b1b1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "stack-lg": "48px",
+                    "stack-sm": "12px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "margin-mobile": "20px",
+                    "stack-md": "24px"
+            },
+            "fontFamily": {
+                    "button-text": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Hanken Grotesk"],
+                    "label-caps": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "button-text": ["16px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+        }
+        .ambient-glow-pink:hover {
+            box-shadow: 0 20px 40px -10px rgba(182, 0, 88, 0.2);
+        }
+        .ambient-glow-blue:hover {
+            box-shadow: 0 20px 40px -10px rgba(11, 103, 122, 0.2);
+        }
+        .text-gradient-primary {
+            background: linear-gradient(135deg, #b60058 0%, #7000ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-clip {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md smooth-scroll">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<img alt="B&amp;T Logo" class="h-10 w-auto scale-95 active:scale-90 transition-transform cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL7ivtgEcsGONuDbW3IMYeaM3TrUVAESNRH-1BCTj7vVcke24rYkqjkRi-fnUk5JBCS6-S8WtKcLyIyydZc7UIKjOoBw1836WLvohTtvj1Kb7pK07BRpZ0mDZxtPr3XDKgeU9eGu95ZcPJImp0vsNScZX4yHvJeU3bn-1ev1DnjVWuFSy8a5QC_m4zgQ6nYE-v5J8vBPFGZrTvtm7jD8UzPZbicSO-8CvJNsYU90q1nZYW7NnLrKKkAlEIk9tkMW6TsaLtfQQgEjiN"/>
+</div>
+<div class="hidden md:flex items-center gap-stack-md">
+<a class="font-button-text text-button-text text-on-surface-variant hover:text-primary transition-colors duration-300" href="#product">Product</a>
+<a class="font-button-text text-button-text text-on-surface-variant hover:text-primary transition-colors duration-300" href="#mission">Mission</a>
+<a class="font-button-text text-button-text text-on-surface-variant hover:text-primary transition-colors duration-300" href="#roadmap">Roadmap</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-button-text text-button-text scale-95 active:scale-90 transition-transform shadow-lg hover:shadow-primary/20">
+                Get Started
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center pt-stack-lg overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-transparent"></div>
+<!-- Potential animation layer -->
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center relative z-10">
+<div class="order-2 lg:order-1">
+<span class="font-label-caps text-label-caps text-primary mb-stack-sm block">BOLDLY BUILDING THE FUTURE</span>
+<h1 class="font-headline-xl text-headline-xl mb-stack-md leading-[1.1]">
+                    The toy company that's <span class="text-primary">#1 in price</span>, #1 in people, and second-to-none on the planet.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-xl">
+                    Boldly building the AI-native generation — sustainably. Turn AI into a language children grow up speaking.
+                </p>
+<div class="flex flex-wrap gap-stack-md">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-button-text text-button-text hover:bg-primary/90 transition-all shadow-xl hover:shadow-primary/30">
+                        Explore the Lineup
+                    </button>
+<button class="bg-secondary/10 text-primary border border-primary/20 px-8 py-4 rounded-full font-button-text text-button-text hover:bg-secondary/20 transition-all">
+                        Watch Mission Video
+                    </button>
+</div>
+</div>
+<div class="order-1 lg:order-2 relative">
+<div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border border-white/50">
+<img alt="B&amp;T AI Toys" class="w-full h-auto object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUu--n0wVCfNpRVUzSiZiZ3f7pgWYBOsPp9d2BVbFFcWG3kcwPnoh-saWllUEKvgvrImbinwTlEEUQefZY04xzrx5y-JcCze2ZZUVp8acoL5knknanW1n8kdEqC_Ii8iFQQUGdkClX70U48yYvslCPc4GYRObGapdshMDCGBQTWcqql4wpaq8imyXz3PA2gUBUquyVMIEUGUmHJOtazqXBUEk-eq25C0JDIZGXAaafNyLvcRfmCKUjqWd2xJOCh_2dmvdnZr8HKZtX"/>
+</div>
+<!-- Glassmorphic Accent -->
+<div class="absolute -bottom-10 -left-10 glass-card p-6 rounded-2xl border border-outline-variant/30 shadow-xl hidden md:block">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-primary">BRAINX ACTIVE</p>
+<p class="font-body-md text-body-md font-bold text-on-surface">98% Learning Accuracy</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mission Statement (High Energy) -->
+<section class="bg-primary py-32 text-center relative overflow-hidden" id="mission">
+<div class="absolute inset-0 opacity-10">
+<div class="h-full w-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+</div>
+<div class="max-w-4xl mx-auto px-margin-mobile relative z-10">
+<span class="material-symbols-outlined text-white text-6xl mb-6 block" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h2 class="font-headline-lg text-white leading-tight">
+                "We design for joy first, so kids learn fluently without realizing they're learning."
+            </h2>
+<div class="h-1 w-24 bg-secondary-fixed mx-auto mt-stack-lg rounded-full"></div>
+</div>
+</section>
+<!-- Product Bento Grid -->
+<section class="py-32 bg-surface" id="product">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-stack-lg gap-gutter">
+<div>
+<span class="font-label-caps text-label-caps text-primary">THE PRODUCT LINE</span>
+<h2 class="font-headline-lg text-headline-lg mt-2">Next-Gen Intelligence</h2>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container px-4 py-2 rounded-full flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="font-label-caps text-[10px]">IN STOCK</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- BrainX Card -->
+<div class="md:col-span-5 group relative bg-white border border-outline-variant/20 rounded-3xl p-stack-lg flex flex-col justify-between overflow-hidden ambient-glow-pink transition-all duration-500">
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<span class="font-label-caps text-label-caps bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full">ENTRY</span>
+<span class="font-headline-md text-headline-md text-primary">€150 – €185</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg mb-2">BrainX</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-6">First fluency · ages 4–7</p>
+<ul class="space-y-4 mb-stack-lg">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md">Smart toy + companion app</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md">Simple AI interactions</span>
+</li>
+</ul>
+</div>
+<div class="mt-auto relative z-10">
+<button class="w-full bg-surface-container-highest text-on-surface-variant py-4 rounded-xl font-button-text text-button-text group-hover:bg-primary group-hover:text-white transition-all">
+                            Learn More
+                        </button>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute -right-10 -bottom-10 w-48 h-48 bg-primary/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+</div>
+<!-- BrainY Card (Flagship) -->
+<div class="md:col-span-7 group relative bg-white border border-primary/20 rounded-3xl overflow-hidden ambient-glow-blue transition-all duration-500 flex flex-col md:flex-row">
+<div class="p-stack-lg flex-1 flex flex-col justify-between relative z-10">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="font-label-caps text-label-caps bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full">FLAGSHIP</span>
+<span class="font-headline-md text-headline-md text-secondary">€185 – €225</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg mb-2">BrainY</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-6">Deeper fluency · ages 6–10</p>
+<ul class="space-y-4 mb-stack-lg">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-body-md text-body-md">Larger, richer electronic core</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-body-md text-body-md">Conversational AI play &amp; sensors</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-body-md text-body-md">Advanced app features</span>
+</li>
+</ul>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-button-text text-button-text shadow-lg hover:shadow-primary/30 transition-all">
+                            Pre-order Flagship
+                        </button>
+</div>
+<div class="flex-1 bg-surface-container relative min-h-[300px]">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="A futuristic, high-tech educational toy with glowing blue LED elements sitting on a minimalist white surface. The background is a clean, bright laboratory-style setting with soft turquoise lighting accents. The toy looks sleek, professional, and advanced, reflecting a premium AI-native brand identity for kids." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrj1eskBFofeqazjCgEHjINs3uXDW5hI3pmDTp8d-zMIkmvxPgUY3FnRWfeSqhX5iAvHfQrPy5j6ATPDEVqdXdXOl-EY9lZd6ie_fNyVy1Q3jAZhDVPi5MDHBumRnuymC7RP6W7S3QKLuf1Umolpw2WRb9BW1SlpA4oblFgfJ9hNtWYkP1MFHZ5ykdNPoOcDXnb1mPaJEjG6uOEYjeaZ0-QRz5lTaevkLUwf8ZLmwpnSUYDEWGXq-fvAzCuRB4WpVhvpjwn5YFUmUl"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Disruption Feature -->
+<section class="py-32 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="bg-gradient-to-r from-primary to-tertiary p-[1px] rounded-[2rem]">
+<div class="bg-white rounded-[2rem] p-12 md:p-24 text-center">
+<span class="font-label-caps text-label-caps text-primary mb-6 block">THE DISRUPTION</span>
+<h2 class="font-headline-lg text-headline-lg max-w-4xl mx-auto leading-tight mb-stack-md">
+                        Toys teach kids to <span class="font-label-caps text-primary">code</span>. B&amp;T teaches them to <span class="italic text-primary">speak AI</span> — starting at age four, with a companion app that grows alongside the child.
+                    </h2>
+<div class="flex justify-center gap-stack-md mt-12">
+<div class="flex flex-col items-center">
+<span class="font-headline-md text-primary">~6,541</span>
+<span class="font-label-caps text-on-surface-variant">UNITS SOLD</span>
+</div>
+<div class="w-px h-12 bg-outline-variant mx-8"></div>
+<div class="flex flex-col items-center">
+<span class="font-headline-md text-primary">~€118</span>
+<span class="font-label-caps text-on-surface-variant">VAL/UNIT</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg flex flex-col md:flex-row justify-between items-center gap-gutter">
+<div class="flex flex-col items-center md:items-start gap-4">
+<img alt="B&amp;T Logo" class="h-12 w-auto opacity-80 hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL7ivtgEcsGONuDbW3IMYeaM3TrUVAESNRH-1BCTj7vVcke24rYkqjkRi-fnUk5JBCS6-S8WtKcLyIyydZc7UIKjOoBw1836WLvohTtvj1Kb7pK07BRpZ0mDZxtPr3XDKgeU9eGu95ZcPJImp0vsNScZX4yHvJeU3bn-1ev1DnjVWuFSy8a5QC_m4zgQ6nYE-v5J8vBPFGZrTvtm7jD8UzPZbicSO-8CvJNsYU90q1nZYW7NnLrKKkAlEIk9tkMW6TsaLtfQQgEjiN"/>
+<p class="font-body-md text-body-md text-on-surface-variant text-center md:text-left">
+                    © 2024 Boys &amp; Toys. Boldly building the AI-native generation.
+                </p>
+</div>
+<div class="flex flex-wrap justify-center gap-stack-md">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all" href="#">Sustainability</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all" href="#">Contact</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all" href="#">Terms of Service</a>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction: Scroll reveal for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.group').forEach(card => {
+            card.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(card);
+        });
+
+        // Interactive Glow effect for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                btn.style.setProperty('--x', `${x}px`);
+                btn.style.setProperty('--y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>
